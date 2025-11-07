@@ -9,7 +9,7 @@ const Hero = () => {
       {/* Spline Background */}
       <div className="absolute inset-0">
         <Spline
-          scene="https://prod.spline.design/zhZFnwyOYLgqlLWk/scene.splinecode"
+          scene="https://prod.spline.design/8nsoLg1te84JZcE9/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
         />
       </div>
@@ -44,7 +44,7 @@ const Hero = () => {
           transition={{ delay: 0.12, duration: 0.8, ease: 'easeOut' }}
           className="mt-4 max-w-2xl text-pretty text-base text-gray-600 md:text-lg"
         >
-          We craft clean brand experiences and high‑performing campaigns with obsessive attention to micro‑interactions.
+          Modern, minimalist campaigns and digital experiences for fintech, e‑commerce, and product teams. Clean design, delightful motion, measurable results.
         </motion.p>
 
         <motion.div
