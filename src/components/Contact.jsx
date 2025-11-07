@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import MicroButton from './MicroButton';
 
 const Contact = () => {
   const [sent, setSent] = useState(false);
@@ -11,7 +12,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative bg-white py-20">
+    <section id="contact" className="relative bg-white py-24">
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-semibold text-gray-900 md:text-4xl">Tell us about your project</h2>
@@ -37,14 +38,9 @@ const Contact = () => {
           </div>
           <div className="mt-6 flex items-center justify-between">
             <p className="text-xs text-gray-500">By sending, you agree to our privacy policy.</p>
-            <motion.button
-              whileHover={{ scale: 1.03, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              type="submit"
-              className="rounded-full bg-gray-900 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-gray-900/10"
-            >
+            <MicroButton className="bg-gray-900 text-white">
               Send message
-            </motion.button>
+            </MicroButton>
           </div>
         </form>
 

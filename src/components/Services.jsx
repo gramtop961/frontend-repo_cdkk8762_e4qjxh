@@ -1,6 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Rocket, PenTool, LineChart } from 'lucide-react';
+import HoverCard from './HoverCard';
 
 const services = [
   {
@@ -21,8 +22,16 @@ const services = [
 ];
 
 const Services = () => {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -40]);
+
   return (
-    <section id="services" className="bg-white/70 py-20">
+    <section id="services" className="relative overflow-hidden bg-white/70 py-24">
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -left-20 top-10 h-56 w-56 rounded-full bg-rose-200/40 blur-3xl"
+        style={{ y }}
+      />
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-semibold text-gray-900 md:text-4xl">What we do</h2>
@@ -32,14 +41,7 @@ const Services = () => {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {services.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: i * 0.06 }}
-              className="group rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition hover:shadow-md"
-            >
+            <HoverCard key={s.title}>
               <div className="mb-4 inline-flex rounded-xl bg-gray-900/90 p-3 text-white">
                 <s.icon className="h-5 w-5" />
               </div>
@@ -48,7 +50,7 @@ const Services = () => {
               <div className="mt-4 text-sm font-medium text-gray-900 opacity-0 transition group-hover:opacity-100">
                 Learn more →
               </div>
-            </motion.div>
+            </HoverCard>
           ))}
         </div>
       </div>

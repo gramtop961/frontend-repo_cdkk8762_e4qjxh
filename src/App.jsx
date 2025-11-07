@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import CursorGlow from './components/CursorGlow';
 import Hero from './components/Hero';
 import WorkShowcase from './components/WorkShowcase';
 import Services from './components/Services';
@@ -8,6 +9,7 @@ import Contact from './components/Contact';
 function App() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
+      <CursorGlow />
       <Navbar />
       <main>
         <Hero />

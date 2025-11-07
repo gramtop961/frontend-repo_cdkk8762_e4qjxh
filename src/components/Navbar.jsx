@@ -5,7 +5,12 @@ const Navbar = () => {
   return (
     <header className="fixed left-0 right-0 top-0 z-50">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mt-4 flex items-center justify-between rounded-full border border-black/10 bg-white/70 px-4 py-2 backdrop-blur-lg">
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-4 flex items-center justify-between rounded-full border border-black/10 bg-white/70 px-4 py-2 backdrop-blur-lg"
+        >
           <a href="#" className="flex items-center gap-2 font-semibold text-gray-900">
             <div className="grid h-7 w-7 place-items-center rounded-full bg-gray-900 text-white">n</div>
             <span>notus</span>
@@ -24,7 +29,7 @@ const Navbar = () => {
           >
             Let's talk
           </motion.a>
-        </div>
+        </motion.div>
       </div>
     </header>
   );

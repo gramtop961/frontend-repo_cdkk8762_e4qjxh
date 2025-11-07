@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Spline from '@splinetool/react-spline';
+import MicroButton from './MicroButton';
 
 const Hero = () => {
   return (
@@ -19,9 +20,9 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
           className="mb-4 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-4 py-2 backdrop-blur-sm"
         >
           <span className="h-2 w-2 animate-pulse rounded-full bg-rose-500" />
@@ -29,46 +30,51 @@ const Hero = () => {
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.05, duration: 0.8, ease: 'easeOut' }}
           className="text-balance font-semibold leading-tight text-gray-900 md:text-6xl text-4xl"
         >
           Minimal ideas. Maximum impact.
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.12, duration: 0.8, ease: 'easeOut' }}
           className="mt-4 max-w-2xl text-pretty text-base text-gray-600 md:text-lg"
         >
           We craft clean brand experiences and high‑performing campaigns with obsessive attention to micro‑interactions.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
+          transition={{ delay: 0.18, duration: 0.8, ease: 'easeOut' }}
           className="mt-8 flex flex-wrap items-center justify-center gap-3"
         >
-          <motion.a
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.98 }}
-            href="#work"
-            className="group rounded-full bg-gray-900 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-gray-900/10 transition"
-          >
+          <MicroButton href="#work" className="bg-gray-900 text-white">
             See our work
-            <span className="ml-2 inline-block transition-transform group-hover:translate-x-0.5">→</span>
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.98 }}
-            href="#contact"
-            className="rounded-full border border-gray-300 bg-white/70 px-6 py-3 text-sm font-medium text-gray-800 backdrop-blur-sm"
-          >
+          </MicroButton>
+          <MicroButton href="#contact" className="border border-gray-300 bg-white/80 text-gray-900">
             Start a project
-          </motion.a>
+          </MicroButton>
+        </motion.div>
+
+        {/* Scroll cue */}
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-gray-600"
+        >
+          <div className="mx-auto h-8 w-4 rounded-full border border-gray-400/60">
+            <motion.span
+              className="mx-auto mt-1 block h-2 w-0.5 rounded-full bg-gray-500"
+              animate={{ y: [0, 16, 0], opacity: [1, 0, 1] }}
+              transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
+            />
+          </div>
         </motion.div>
       </div>
     </section>
